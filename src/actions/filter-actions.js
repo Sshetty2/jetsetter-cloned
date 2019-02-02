@@ -3,6 +3,10 @@ import {
   UPDATE_PACKED_ITEMS_FILTER
 } from '../constants';
 
-export const updateUnpackedItemsFilter = () => ({});
+export const updateUnpackedItemsFilter = (text) => ({
+  type: UPDATE_UNPACKED_ITEMS_FILTER,
+});
 
-export const updatePackedItemsFilter = () => ({});
+export const updatePackedItemsFilter = () => ({
+  type: UPDATE_PACKED_ITEMS_FILTER,
+});
