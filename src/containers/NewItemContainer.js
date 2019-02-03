@@ -5,11 +5,10 @@ import NewItem from '../component/NewItem';
 import { updateNewItemValue } from '../actions/new-item-actions';
 import { addNewItem } from '../actions/items-actions';
 
-const mapStateToProps = ({ newItemValue }) => ({
+const mapStateToProps = ({ state }) => (
     {
         value: state.unpackedItemsFilter,
-    };
-});
+    });
 
 
 const mapDispatchToProps = (dispatch) => {
