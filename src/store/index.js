@@ -5,7 +5,7 @@ import reducers from '../reducers';
 import initialState from './initial-state';
 
 import { getAllItems } from '../actions/items-actions';
-import { startListeningToCountdown } from '../actions/countdown-actions';
+// import { startListeningToCountdown } from '../actions/countdown-actions';
 
 const middleware = [thunk];
 const enhancers = [];
@@ -18,6 +18,6 @@ const store = createStore(
 );
 
 store.dispatch(getAllItems());
-store.dispatch(startListeningToCountdown());
+// store.dispatch(startListeningToCountdown());
 
 export default store;

@@ -1,22 +1,57 @@
-import uniqueId from 'lodash/uniqueId';
-import { ADD_NEW_ITEM, REMOVE_ITEM, TOGGLE_ITEM, MARK_ALL_AS_UNPACKED } from '../constants';
+import { ADD_NEW_ITEM, REMOVE_ITEM, TOGGLE_ITEM, MARK_ALL_AS_UNPACKED, UPDATE_ALL_ITEMS } from '../constants';
+import API from '../lib/api';
 
-export const addNewItem = (value) => ({
-  type: ADD_NEW_ITEM,
-  id: uniqueId(),
-  packed: false,
-  value,
-});
 
-export const toggleItem = (id) => ({
-  type: TOGGLE_ITEM,
-  id,
-});
+export const getAllItems = () => {
+  return dispatch => {
+    API.getAll().then(items => {
+      dispatch({
+        type: UPDATE_ALL_ITEMS,
+        items,
+      })
+    })
+  }
+}
 
-export const removeItem = (id) => ({
-  type: REMOVE_ITEM,
-  id,
-});
+
+export const addNewItem = (value) => {
+  const item = {
+    packed: false,
+    value,
+  }
+  return dispatch => {
+    API.add(item).then(item => {
+      dispatch({
+        type: ADD_NEW_ITEM,
+        item
+      })
+    })
+  }
+}
+
+
+export const toggleItem = (item) => {
+  const updatedItem = { ...item, packed: !item.packed };
+  return dispatch => {
+    API.update(updatedItem).then(() => {
+      dispatch({
+        type: TOGGLE_ITEM,
+        item: updatedItem
+      });
+    }
+  )}  
+};
+
+export const removeItem = (item) => {
+  return dispatch => {
+    API.delete(item).then(()=>{
+      dispatch(({
+        type: REMOVE_ITEM,
+        item
+      }))
+    })
+  }
+};
 
 export const markAllAsUnpacked = () => ({
   type: MARK_ALL_AS_UNPACKED,
