@@ -18,7 +18,7 @@ export default {
 
   async getAll() {
     return await getAll();
-  },
+  }, 
 
   async delete({ id }) {
     const items = await getAll();
