@@ -11,8 +11,8 @@ const mapStateToProps = ({ items, filter }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onCheckOff(id) {
-    dispatch(toggleItem(id))
+  onCheckOff(item) {
+    dispatch(toggleItem(item))
   },
   onRemove(id) {
     dispatch(removeItem(id))

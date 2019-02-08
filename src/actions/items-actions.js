@@ -42,17 +42,24 @@ export const toggleItem = (item) => {
   )}  
 };
 
-export const removeItem = (item) => {
+export const removeItem = (id) => {
+  console.log(id)
   return dispatch => {
-    API.delete(item).then(()=>{
+    API.delete(id).then(()=>{
       dispatch(({
         type: REMOVE_ITEM,
-        item
+        id
       }))
     })
   }
 };
 
-export const markAllAsUnpacked = () => ({
-  type: MARK_ALL_AS_UNPACKED,
-})
+export const markAllAsUnpacked = () => {
+  return dispatch => {
+    API.markAllAsUnpacked().then(()=> {
+      dispatch({
+        type: MARK_ALL_AS_UNPACKED
+      })
+    })
+  }
+}
