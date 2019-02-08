@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import uniqueId from 'lodash/uniqueId';
+// import uniqueId from 'lodash/uniqueId';
+
+import { inject } from 'mobx-react';
 
 import './NewItem.css';
 
+
+@inject('itemList')
 class NewItem extends Component {
   state = {
     value: '',
@@ -18,12 +22,14 @@ class NewItem extends Component {
   };
 
   handleSubmit = event => {
-    const { onSubmit } = this.props;
     const { value } = this.state;
 
-    event.preventDefault();
-    onSubmit({ value, packed: false, id: uniqueId() });
-    this.setState({ value: '' });
+    const { itemList } = this.props;
+    itemList.addItem({ value })
+
+    this.setState({ value: ''});
+
+
   };
 
   render() {
