@@ -22,6 +22,7 @@ class NewItem extends Component {
   };
 
   handleSubmit = event => {
+    event.preventDefault()
     const { value } = this.state;
 
     const { itemList } = this.props;

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import uniqueId from 'lodash/uniqueId';
-// import CountDown from './CountDown';
 import NewItem from './NewItem';
 import Items from './Items';
 
@@ -11,17 +9,17 @@ import { inject, observer } from 'mobx-react';
 const PackedItems = inject('itemList')(
   observer(({ itemList }) => (
     <Items
-    title="Packed Items"
-    items={itemList.packedItems}
-  />
+      title="Packed Items"
+      items={itemList.packedItems}
+    />
   )
 ))
 
 const UnPackedItems = inject('itemList')(
   observer(({ itemList }) => (
     <Items
-    title="Unpacked Items"
-    items={itemList.unpackedItems}
+      title="Unpacked Items"
+      items={itemList.unpackedItems}
   />
   )
 ))

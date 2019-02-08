@@ -1,5 +1,5 @@
 import { observable, computed, action } from 'mobx';
-import Item from '.Item';
+import Item from './item';
 
 export default class ItemList {
     @observable items = [];

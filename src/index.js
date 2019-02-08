@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 
 import { Provider } from 'mobx-react';
 
-import ItemList from '../models/itemList'
-import Application from '../src/components/Application';
+import ItemList from './models/itemList'
+import Application from './components/Application';
 
 import './index.css';
 
