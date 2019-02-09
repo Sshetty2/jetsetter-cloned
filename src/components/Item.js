@@ -15,7 +15,7 @@ class Item extends Component {
           />
           {item.value}
         </label>
-        <button className="Item-remove" onClick={onRemove}>
+        <button className="Item-remove" onClick={item.remove}>
           Remove
         </button>
       </article>

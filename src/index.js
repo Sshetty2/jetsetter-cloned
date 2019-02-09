@@ -13,6 +13,6 @@ const itemList = new ItemList();
 ReactDOM.render(
     <Provider itemList ={itemList}>
         <Application />    
-    </Provider>
-
-    , document.getElementById('root'));
+    </Provider>,
+    document.getElementById('root'),
+    );
