@@ -48,12 +48,10 @@ class Application extends Component {
   render() {
     return (
       <div className="Application">
-        <NewItem onSubmit={() => {}} />
+        <NewItem />
         <UnPackedItems />
         <PackedItems />
-        <button className="button full-width" onClick={() => {}}>
-          Mark All As Unpacked
-        </button>
+        <MarkAllAsUnpacked />
       </div>
     );
   }
