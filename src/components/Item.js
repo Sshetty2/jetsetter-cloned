@@ -10,7 +10,7 @@ class Item extends Component {
           <input
             type="checkbox"
             checked={item.packed}
-            onChange={onCheckOff}
+            onChange={item.toggle}
             id={item.id}
           />
           {item.value}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import NewItem from './NewItem';
 import Items from './Items';
+import Filter from './Filter';
+
 
 import './Application.css';
 
@@ -10,8 +12,10 @@ const PackedItems = inject('itemList')(
   observer(({ itemList }) => (
     <Items
       title="Packed Items"
-      items={itemList.packedItems}
-    />
+      items={itemList.filteredPackedItems}
+    >
+    <Filter searchTerm= {itemList.packedItemsFilter} onChange= {itemList.updatePackedItemsFilter} />
+    </Items> 
   )
 ))
 
@@ -19,10 +23,23 @@ const UnPackedItems = inject('itemList')(
   observer(({ itemList }) => (
     <Items
       title="Unpacked Items"
-      items={itemList.unpackedItems}
-  />
+      items={itemList.filteredUnpackedItems}
+      >
+     <Filter searchTerm= {itemList.unpackedItemsFilter} onChange= {itemList.updateUnpackedItemsFilter} />
+    </Items>
+
+
   )
 ))
+
+
+const MarkAllasPacked = inject('itemList')(({ itemList }) => {
+  return (
+    <button className="full-width" onClick={itemList.markAllAsPacked}>
+      Mark All as Packed
+    </button> 
+  )
+})
 
 
 
