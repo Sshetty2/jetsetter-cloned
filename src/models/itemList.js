@@ -50,6 +50,10 @@ export default class ItemStore {
     updateUnpackedItemsFilter(value) {
     this.unpackedItemsFilter = value;
     }
+
+    @action.bound markAllAsUnpacked() {
+        this.items.forEach(item => item.packed = false);
+    }
  
 }
 

@@ -33,9 +33,9 @@ const UnPackedItems = inject('itemList')(
 ))
 
 
-const MarkAllasPacked = inject('itemList')(({ itemList }) => {
+const MarkAllAsUnpacked = inject('itemList')(({ itemList }) => {
   return (
-    <button className="full-width" onClick={itemList.markAllAsPacked}>
+    <button className="full-width" onClick={itemList.markAllAsUnpacked}>
       Mark All as Packed
     </button> 
   )
