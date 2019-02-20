@@ -6,8 +6,8 @@ import {
   removeItem,
 } from '../actions/items-actions'
 
-const mapStateToProps = ({ items, filter }) => {
-  return { items: items.present.filter(item => !item.packed && item.value.includes(filter.unpackedItemsFilter)) };
+const mapStateToProps = (state) => {
+  return { items: state.items.present.filter(item => !item.packed && item.value.includes(state.filter.unpackedItemsFilter)) };
 };
 
 const mapDispatchToProps = (dispatch) => ({
